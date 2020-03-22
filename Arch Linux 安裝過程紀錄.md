@@ -20,13 +20,16 @@
     - `man`
 
 ### After installation (系統設定)
+
 - 網路連線
     - `nmtui`
+
 - 使用者管理
     - `pacman -S sudo`
     - 新增 billson 使用者
     - 將 billson 加入 **wheel** 群組
     - 編輯 `/etc/sudoers`，執行 `sudo EDITOR=vim visudo`
+
 - 安裝桌面環境 `pacman -S xfce4 lightdm lightdm-webkit2-greeter`
     - 啟用 lightdm `systemctl enable lightdm`
     - 下次開機時，直接進入圖形化界面 `systemctl set-default graphical.target`
@@ -42,9 +45,11 @@
         ...
         [XDMCPServer]
         ```        
+
 - 在使用者家目錄下產生 Downloads Documents Desktop Music 等八個常用目錄 ([XDG user directories](https://wiki.archlinux.org/index.php/XDG_user_directories))
     - `pacman -S xdg-user-dirs`
     - 執行 `xdg-user-dirs-update`
+
 - 安裝中文輸入法和其他字型
     - `pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji terminus-font`
     - `pacman -S fcitx-im fcitx-chewing fcitx-configtool`
@@ -56,13 +61,16 @@
         export QT_IM_MODULE=fcitx
         fcitx&
         ```        
+
 - 安裝網頁瀏覽器 **Firefox** `pacman -S firefox` 
     - 進到 **Preferences** 頁面，設定字型和語言
         - Language and Appearance/Fonts and Colors：將字體更改為 **Noto Sans CJK TC**，使得中文標點符號能正常顯示
         - Language and Appearance/Language：將 **preferred language for displaying pages** 更改為 **Chinese (Taiwan) [zh-tw]**，讓維基百科能優先使用繁體中文顯示中文頁面
 
+
 - ALSA
     - 安裝 `alsa-utils`
+
 - Output of `pacman -Qe`
 
 ```
