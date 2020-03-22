@@ -4,13 +4,16 @@
 
 - 鍵盤配置
     - 保留預設值即可 (US)
+
 - 連線到網際網路
     - 使用 `ip a` 檢查網卡是否正常運作
     - 使用 `wifi-menu` 連上無線網路
     - 使用 `dhcpcd` 連上有線網路 (動態 ip)
     - 使用 `ping` 確認網路連線
+
 - 編輯 `/etc/pacman.d/mirrorlist`，新增海洋大學映像站
     -  `Server = http://shadow.ind.ntou.edu.tw/archlinux/$repo/os/$arch`
+
 - 安裝其他套件
     - `networkmanager`
     - `grub`
