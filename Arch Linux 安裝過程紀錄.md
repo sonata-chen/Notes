@@ -1,26 +1,20 @@
 # **Arch Linux 安裝過程紀錄**
 
-
 ### 進入開機媒體
 
 - 鍵盤配置
-  * 保留預設值即可 (US)
-
+    - 保留預設值即可 (US)
 - 連線到網際網路
-
-  * 使用 `ip a` 檢查網卡是否正常運作
-  * 使用 `wifi-menu` 連上無線網路
-  * 使用 `dhcpcd` 連上有線網路 (動態 ip)
-  * 使用 `ping` 確認網路連線
-
+    - 使用 `ip a` 檢查網卡是否正常運作
+    - 使用 `wifi-menu` 連上無線網路
+    - 使用 `dhcpcd` 連上有線網路 (動態 ip)
+    - 使用 `ping` 確認網路連線
 - 編輯 `/etc/pacman.d/mirrorlist`，新增海洋大學映像站
-  * `Server = http://shadow.ind.ntou.edu.tw/archlinux/$repo/os/$arch`
-
+    -  `Server = http://shadow.ind.ntou.edu.tw/archlinux/$repo/os/$arch`
 - 安裝其他套件
-  * `networkmanager`
-  * `grub`
-  * `man`
-
+    - `networkmanager`
+    - `grub`
+    - `man`
 
 ### After installation (系統設定)
 - 網路連線
@@ -33,9 +27,9 @@
 - 安裝桌面環境 `pacman -S xfce4 lightdm lightdm-webkit2-greeter`
     - 啟用 lightdm `systemctl enable lightdm`
     - 下次開機時，直接進入圖形化界面 `systemctl set-default graphical.target`
-    - 編輯 `/etc/lightdm/lightdm.conf`，設定 `greeter` 
+    - 編輯 `/etc/lightdm/lightdm.conf`，設定 `greeter`
         
-        ```
+        ``` yaml
         [Seat:*]
         ...
         ...
@@ -44,7 +38,7 @@
         #greeter-hide-users=false        
         ...
         [XDMCPServer]
-        ```
+        ```        
 - 在使用者家目錄下產生 Downloads Documents Desktop Music 等八個常用目錄 ([XDG user directories](https://wiki.archlinux.org/index.php/XDG_user_directories))
     - `pacman -S xdg-user-dirs`
     - 執行 `xdg-user-dirs-update`
@@ -142,5 +136,6 @@ xorg-xpr 1.0.5-1
 xorg-xprop 1.2.4-1
 xorg-xrandr 1.5.1-1
 ```
+
 ### Screenshot
 ![](https://i.imgur.com/PvmmCrh.png)
