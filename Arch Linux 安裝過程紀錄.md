@@ -28,7 +28,7 @@
     - `pacman -S sudo`
     - 新增 billson 使用者
     - 將 billson 加入 **wheel** 群組
-    - 編輯 `/etc/sudoers`，執行 `sudo EDITOR=vim visudo`
+    - 編輯 `/etc/sudoers`，執行 `EDITOR=vim visudo`
 
 - 安裝桌面環境 `pacman -S xfce4 lightdm lightdm-webkit2-greeter`
     - 啟用 lightdm `systemctl enable lightdm`
