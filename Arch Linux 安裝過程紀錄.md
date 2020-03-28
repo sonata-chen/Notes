@@ -92,10 +92,6 @@
 - PulseAudio
     - `pacman -S pulseaudio  pulseaudio-alsa pavucontrol`
 
-## __Screenshot__
-![](https://i.imgur.com/PvmmCrh.png)
-
-
 ## __桌面應用__
 
 |類別|套件|
@@ -188,4 +184,16 @@
     ```
     usermod -G realtime,audio -a billson
     ```
+
+## __Screenshot__
+
+![](Screenshot/Screenshot_2020-03-27_23-43-54.png)
+
+![](Screenshot/Screenshot_2020-03-28_10-32-31.png)
+
+![](Screenshot/Screenshot_2020-03-22_10-44-05.png)
+
+![](Screenshot/Screenshot_2020-03-27_23-41-20.png)
+
+![](Screenshot/Screenshot_2020-03-27_23-45-52.png)
 
