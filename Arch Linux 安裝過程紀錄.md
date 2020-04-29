@@ -36,7 +36,7 @@
 - 安裝桌面環境
 
     ```
-    pacman -S xfce4 lightdm lightdm-webkit2-greeter
+    pacman -S xfce4 xorg-server lightdm lightdm-webkit2-greeter
     ```
 
     - 啟用 lightdm `systemctl enable lightdm`
