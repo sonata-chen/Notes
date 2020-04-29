@@ -3,7 +3,7 @@
 ## __進入開機媒體__
 
 - 鍵盤配置
-    - 保留預設值即可 (US)    
+    - 保留預設值即可 (US)
 
 - 連線到網際網路
     - 使用 `ip a` 檢查網卡是否正常運作
@@ -12,7 +12,7 @@
     - 使用 `ping` 確認網路連線
 
 - 編輯 `/etc/pacman.d/mirrorlist`，新增海洋大學映像站
-    
+
     ```
     Server = http://shadow.ind.ntou.edu.tw/archlinux/$repo/os/$arch
     ```
@@ -56,17 +56,17 @@
 
 - 在使用者家目錄下產生 Downloads Documents Desktop Music 等八個常用目錄 ([XDG user directories](https://wiki.archlinux.org/index.php/XDG_user_directories))
     - `pacman -S xdg-user-dirs`
-    - 執行 `xdg-user-dirs-update`    
+    - 執行 `xdg-user-dirs-update`
 
 - 安裝中文輸入法和其他字型
     ```
     pacman -S ttf-liberation noto-fonts noto-fonts-cjk noto-fonts-emoji terminus-font
     ```
-    
+
     ```
     pacman -S fcitx-im fcitx-chewing fcitx-configtool
     ```
-    
+
     - 編輯 `~/.xprofile`
         
         ``` bash
@@ -99,16 +99,16 @@
 |File manager|thunar <br> thunar-archive-plugin <br> thunar-media-tags-plugin <br> thunar-volman <br> tumbler <br> gvfs|
 |Archieve Manager|file-roller|
 |Programming|VS code (`code`)|
-|Video and Audio|vlc <br> lollypop *|
+|Video and Audio|vlc <br> lollypop \*|
 |Image|viewnior|
 |Office|LibreOffice (`libreoffice-fresh`) <br> qpdfview|
 |Disk|gparted <br> baobab <br>|
 |XFCE panel plugins|xfce4-clipman-plugin <br> xfce4-mount-plugin <br> xfce4-notifyd <br> xfce4-pulseaudio-plugin <br> xfce4-whiskermenu-plugin|
-|Others|xfce4-screenshooter <br> xfce4-taskmanager <br> xfce4-screensaver <br> zenity *|
+|Others|xfce4-screenshooter <br> xfce4-taskmanager <br> xfce4-screensaver <br> zenity \*|
 
 <br>
 
-> \* lollypop 需要安裝可選擇的相依性套件才能播放音樂
+> _\* lollypop 需要安裝可選擇的相依性套件才能播放音樂_
 > ```
 > Optional Deps:
 > easytag: Modify tags
@@ -122,8 +122,7 @@
 > python-pylast: Last.FM support
 > youtube-dl: Youtube support
 > ```
-
-> \* JUCE Framework 需要這個套件 [參考連結](https://forum.juce.com/t/native-filechooser-not-used-on-linux-xfce/26347)
+> _\* JUCE Framework 需要這個套件 [參考連結](https://forum.juce.com/t/native-filechooser-not-used-on-linux-xfce/> 26347)_
 
 ## __桌面主題__
 - __GTK 應用程式主題__
@@ -167,7 +166,7 @@
         ``` bash
         export QT_QPA_PLATFORMTHEME=qt5ct
         ```
-    
+
     - 設定主題
 
         執行 `qt5ct`，在 __Appearance__ 的頁籤把 __Style__ 選項設為 __kvantum__，接著開啟 __Kvantum Manager__，選擇 __KvGnomeDark__ 作為預設主題，也可以進到 __Application Themes__ 頁籤，為特定的應用程式套用不同的主題
