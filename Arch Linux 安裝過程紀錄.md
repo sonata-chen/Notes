@@ -17,10 +17,26 @@
     Server = http://shadow.ind.ntou.edu.tw/archlinux/$repo/os/$arch
     ```
 
-- 安裝其他套件
-    - `networkmanager`
-    - `grub`
-    - `man`
+- 安裝系統 (linux核心、驅動程式、基本工具程式)
+
+    ```
+    pacstrap /mnt base linux linux-firmware
+    ```
+
+- 執行 `arch-chroot /mnt` 之後，用 `pacman` 安裝其他套件
+
+    ```
+    pacman -S base-devel networkmanager man-db vim
+    ```
+
+- 安裝 Boot Loader/Manager (UEFI)
+    
+    - `pacman -S grub efibootmgr`
+    - `--efi-directory` : __ESP__ 分割區的掛載點   
+    <br>
+    ```
+    grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux
+    ```        
 
 ## __After installation (系統設定)__
 
@@ -72,19 +88,8 @@
         ``` bash
         export XMODIFIERS=@im=fcitx
         export GTK_IM_MODULE=fcitx
-        export QT_IM_MODULE=fcitx
-        fcitx&
-        ```        
-
-- 安裝網頁瀏覽器 **Firefox** 
-    - 進到 **Preferences** 頁面，設定字型和語言
-        - Language and Appearance/Fonts and Colors：
-        
-            將字體更改為 __Noto Sans CJK TC__，使得中文標點符號能正常顯示
-
-        - Language and Appearance/Language：
-            
-            將 __preferred language for displaying pages__ 更改為 __Chinese (Taiwan) [zh-tw]__，讓維基百科能優先使用繁體中文顯示中文頁面
+        export QT_IM_MODULE=fcitx        
+        ```
 
 - ALSA
     - `pacman -S alsa-utils`
@@ -96,15 +101,17 @@
 
 |類別|套件|
 |-|-|
+|Terminal Emulator|alacritty|
 |File manager|thunar <br> thunar-archive-plugin <br> thunar-media-tags-plugin <br> thunar-volman <br> tumbler <br> gvfs|
 |Archieve Manager|file-roller|
 |Programming|VS code (`code`)|
-|Video and Audio|vlc <br> lollypop \*|
+|Video and Audio|vlc <br> lollypop \* <br> spotify (AUR)|
 |Image|viewnior|
-|Office|LibreOffice (`libreoffice-fresh`) <br> qpdfview|
-|Disk|gparted <br> baobab <br>|
-|XFCE panel plugins|xfce4-clipman-plugin <br> xfce4-mount-plugin <br> xfce4-notifyd <br> xfce4-pulseaudio-plugin <br> xfce4-whiskermenu-plugin|
-|Others|xfce4-screenshooter <br> xfce4-taskmanager <br> xfce4-screensaver <br> zenity \*|
+|Office|LibreOffice (`libreoffice-fresh`) <br> okular
+|Disk|gparted <br> baobab <br> balena-etcher (AUR)|
+|XFCE panel plugins|xfce4-clipman-plugin <br> xfce4-notifyd <br> xfce4-pulseaudio-plugin <br> xfce4-whiskermenu-plugin|
+|Desktop Rice|plank <br> glava <br> rofi|
+|Others|xfce4-screenshooter <br> xfce4-taskmanager <br> xfce4-screensaver <br> zenity \* <br> font-manager (AUR) <br> timeshift (AUR)|
 
 <br>
 
@@ -122,7 +129,7 @@
 > python-pylast: Last.FM support
 > youtube-dl: Youtube support
 > ```
-> _\* JUCE Framework 需要這個套件 [參考連結](https://forum.juce.com/t/native-filechooser-not-used-on-linux-xfce/> 26347)_
+> _\* JUCE Framework 需要這個套件 [參考連結](https://forum.juce.com/t/native-filechooser-not-used-on-linux-xfce/26347)_
 
 ## __桌面主題__
 - __GTK 應用程式主題__
@@ -151,6 +158,9 @@
         ...
         Exec=env GTK_THEME=vimix-beryl libreoffice --writer
         ```
+    - Reference
+        - [GTK Theme](https://wiki.archlinux.org/index.php/GTK#Themes)
+        - [Desktop entry](https://wiki.archlinux.org/index.php/Desktop_entries#Tips_and_tricks)
 
 - __Qt / KDE / Kuantum 應用程式主題__
     - Xfce桌面環境只能管理 GTK 主題，需要安裝額外的管理程式：
@@ -170,6 +180,79 @@
     - 設定主題
 
         執行 `qt5ct`，在 __Appearance__ 的頁籤把 __Style__ 選項設為 __kvantum__，接著開啟 __Kvantum Manager__，選擇 __KvGnomeDark__ 作為預設主題，也可以進到 __Application Themes__ 頁籤，為特定的應用程式套用不同的主題
+    - Reference
+        - [Qt Theme](https://wiki.archlinux.org/index.php/Qt#Configuration_of_Qt5_apps_under_environments_other_than_KDE_Plasma)
+
+## 字型設定
+- Arch Linux 預設的字型設定對中文不是很友善，不採用它的設定，刪除 `conf.d` 中的連結檔
+    
+    ```
+    rm /etc/fonts/conf.d/60-latin.conf /etc/fonts/conf.d/65-nonlatin.conf
+    ```
+- Noto CJK 字型的設定檔 `/etc/fonts/conf.avail/70-noto-cjk.conf` 預設沒有啟用，複製一份到自己的家目錄下來啟用這個設定
+
+- 設定偏好字型，以無襯線字體為例
+    ``` xml   
+    <alias>
+       <family>sans-serif</family> <!-- sans -->
+       <prefer>
+         <!-- latin fonts -->
+         <family>Liberation Sans</family>
+         <family>Roboto</family>
+         <family>Ubuntu</family>
+         <family>DejaVu Sans</family>
+         <family>Bitstream Vera Sans</family>
+         <family>Noto Sans</family>
+    
+         <!-- chinese fonts -->
+         <family>Noto Sans CJK TC</family>
+         <family>WenQuanYi Micro Hei</family>
+         <family>WenQuanYi Zen Hei</family>
+         <family>jf-openhuninn-1.0</family>
+    
+         <!-- emoji fonts -->
+         <family>Noto Color Emoji</family>
+    
+         <!-- iconic patched fonts: (Font Awesome, powerline) -->
+         <family>Hack Nerd Font Mono</family>
+         <family>FiraCode Nerd Font Mono</family>
+       </prefer>
+    </alias>
+    ```
+- 將設定檔放在家目錄下 `~/.config/fontconfig/conf.d`
+    - `10-noto-cjk.conf` CJK 字型設定，數字較小，優先序校高
+    - `30-prefered-fonts.conf` 偏好字型
+- 使用 `fc-match` 觀察設定結果
+    - 預設使用拉丁字型
+
+        ```
+        $ fc-match sans
+        LiberationSans-Regular.ttf: "Liberation Sans" "Regular"
+        ```
+    - Noto CJK 中韓日字型對於相同的字有不同的設計，若沒有指定語言，預設使用繁體中文字型( `ff0c` 是中文全形逗號的 unicode 編碼)
+
+        ```
+        $ fc-match sans:charset=ff0c
+        NotoSansCJK-Regular.ttc: "Noto Sans CJK TC" "Regular"
+        ```
+
+    - 若有指定語言，則使用對應的字體
+
+        ```
+        $ fc-match sans:lang=zh-cn
+        NotoSansCJK-Regular.ttc: "Noto Sans CJK SC" "Regular"
+        ```
+- Firefox 字型設定，進到 **Preferences** 頁面    
+    - Language and Appearance/Fonts and Colors：        
+        
+        進入 Advanced 對話框 ，為不同的語言設定不同的字體
+
+    - Language and Appearance/Language：
+        
+        將 __preferred language for displaying pages__ 更改為 __Chinese (Taiwan) [zh-tw]__，讓維基百科能優先使用繁體中文顯示中文頁面
+- Refefence
+    - [Manjaro字型設定折騰記 (上)](https://archer1609wp.wordpress.com/2018/10/23/manjaro-font-config-1/)
+    - [Fontconfig Documentation](https://www.freedesktop.org/software/fontconfig/fontconfig-user.html)
 
 ## JACK Audio Connection Kit
 - 安裝：
@@ -195,4 +278,3 @@
 ![](Screenshot/Screenshot_2020-03-27_23-41-20.png)
 
 ![](Screenshot/Screenshot_2020-03-27_23-45-52.png)
-
