@@ -34,6 +34,7 @@
     - `pacman -S grub efibootmgr`
     - `--efi-directory` : __ESP__ 分割區的掛載點   
     <br>
+
     ```
     grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux
     ```        
