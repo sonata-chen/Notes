@@ -1,6 +1,15 @@
 # **Arch Linux 安裝過程紀錄**
 
-## **進入開機媒體**
+- **[安裝系統](#進入開機媒體)**
+- **[系統設定](#系統設定)**
+- **[桌面應用](#桌面應用)**
+- **[桌面主題](#桌面主題)**
+- **[字型設定](#字型設定)**
+- **[JACK Audio Connection Kit](<#JACK\ Audio\ Connection\ Kit>)**
+- **[Screenshot](#Screenshot)**
+
+
+## **安裝系統**
 
 - 鍵盤配置
 
@@ -42,7 +51,7 @@
   grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux
   ```
 
-## **After installation (系統設定)**
+## **系統設定**
 
 - 網路連線
 
@@ -202,7 +211,7 @@
   - Reference
     - [Qt Theme](https://wiki.archlinux.org/index.php/Qt#Configuration_of_Qt5_apps_under_environments_other_than_KDE_Plasma)
 
-## 字型設定
+## **字型設定**
 
 - Arch Linux 預設的字型設定對中文不是很友善，不採用它的設定，刪除 `conf.d` 中的連結檔
 
@@ -283,7 +292,7 @@
   - [Manjaro 字型設定折騰記 (上)](https://archer1609wp.wordpress.com/2018/10/23/manjaro-font-config-1/)
   - [Fontconfig Documentation](https://www.freedesktop.org/software/fontconfig/fontconfig-user.html)
 
-## JACK Audio Connection Kit
+## **JACK Audio Connection Kit**
 
 - 安裝：
 
