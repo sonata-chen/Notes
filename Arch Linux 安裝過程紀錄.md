@@ -1,11 +1,11 @@
 # **Arch Linux 安裝過程紀錄**
 
-- **[安裝系統](#進入開機媒體)**
+- **[安裝系統](#安裝系統)**
 - **[系統設定](#系統設定)**
 - **[桌面應用](#桌面應用)**
 - **[桌面主題](#桌面主題)**
 - **[字型設定](#字型設定)**
-- **[JACK Audio Connection Kit](<#JACK\ Audio\ Connection\ Kit>)**
+- **[JACK Audio Connection Kit](<#JACK Audio Connection Kit>)**
 - **[Screenshot](#Screenshot)**
 
 
