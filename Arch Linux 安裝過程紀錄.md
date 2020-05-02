@@ -5,7 +5,7 @@
 - **[桌面應用](#桌面應用)**
 - **[桌面主題](#桌面主題)**
 - **[字型設定](#字型設定)**
-- **[JACK Audio Connection Kit](<#JACK Audio Connection Kit>)**
+- **[JACK Audio Connection Kit](<#jack-audio-connection-kit>)**
 - **[Screenshot](#Screenshot)**
 
 
