@@ -6,6 +6,7 @@
 - **[桌面主題](#桌面主題)**
 - **[字型設定](#字型設定)**
 - **[JACK Audio Connection Kit](<#jack-audio-connection-kit>)**
+- **[PipeWire](#PipeWire)**
 - **[Screenshot](#Screenshot)**
 
 
@@ -305,6 +306,8 @@
   ```
   usermod -G realtime,audio -a billson
   ```
+
+## **PipeWire**
 
 ## **Screenshot**
 
