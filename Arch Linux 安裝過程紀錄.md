@@ -122,7 +122,7 @@
 | 類別 | 套件 |
 | --- | --- |
 | Terminal Emulator | alacritty |
-| File manager | thunar <br> thunar-archive-plugin <br> thunar-media-tags-plugin <br> thunar-volman <br> tumbler <br> gvfs |
+| File manager | thunar <br> thunar-archive-plugin <br> thunar-media-tags-plugin <br> thunar-volman <br> tumbler <br> gvfs <br> gvfs-mtp \* |
 | Archieve Manager | file-roller |
 | Programming | VS code (`code`) |
 | Video and Audio | vlc <br> lollypop \* <br> spotify (AUR) |
@@ -152,6 +152,8 @@
 > ```
 >
 > _\* JUCE Framework 需要這個套件 [參考連結](https://forum.juce.com/t/native-filechooser-not-used-on-linux-xfce/26347)_
+>
+> _\* 讓電腦可以透過usb讀取手機檔案_
 
 ## **桌面主題**
 
